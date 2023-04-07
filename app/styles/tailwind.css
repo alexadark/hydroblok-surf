@@ -1,0 +1,42 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply mt-2 mb-5 text-3xl;
+  }
+  h2 {
+    @apply mt-2 text-lg md:text-xl;
+  }
+  h3 {
+    @apply mt-3 text-base md:text-lg;
+  }
+  h4 {
+    @apply text-sm md:text-base;
+  }
+  h5 {
+    @apply text-sm;
+  }
+  h6 {
+    @apply mb-2 text-xs;
+  }
+  a {
+    @apply no-underline transition duration-300;
+  }
+}
+
+@layer utilities {
+  .center-container {
+    @apply container mx-auto px-7 xl:px-0;
+  }
+}

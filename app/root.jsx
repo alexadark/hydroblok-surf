@@ -7,12 +7,15 @@ import {
   useLoaderData,
 } from '@remix-run/react';
 import {storyblokInit, apiPlugin} from '@storyblok/react';
-import styles from './styles/app.css';
+import tailwind from './styles/tailwind-build.css';
 import favicon from '../public/favicon.svg';
+import {Layout} from './components/Layout';
+import {Seo} from '@shopify/hydrogen';
+import Page from './components/bloks/Page';
 
 export const links = () => {
   return [
-    {rel: 'stylesheet', href: styles},
+    {rel: 'stylesheet', href: tailwind},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
@@ -35,7 +38,9 @@ export async function loader({context}) {
   return {layout};
 }
 
-const components = {};
+const components = {
+  page: Page,
+};
 storyblokInit({
   accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',
   use: [apiPlugin],
@@ -50,13 +55,14 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+        <Seo />
         <Meta />
         <Links />
       </head>
       <body>
-        <h1>Hello, {name}</h1>
-        <p>This is a custom storefront powered by Hydrogen</p>
-        <Outlet />
+        <Layout title={name}>
+          <Outlet />
+        </Layout>
         <ScrollRestoration />
         <Scripts />
       </body>

@@ -4,13 +4,16 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+  * {
+    @apply bg-dark text-white;
+  }
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-bold;
+    @apply font-heading uppercase;
   }
   h1 {
     @apply mt-2 mb-5 text-3xl;
@@ -32,6 +35,16 @@
   }
   a {
     @apply no-underline transition duration-300;
+  }
+}
+@layer components {
+  nav {
+    li {
+      @apply uppercase;
+      a {
+        @apply hover:text-primary hover:underline;
+      }
+    }
   }
 }
 

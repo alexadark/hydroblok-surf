@@ -12,6 +12,8 @@ import favicon from '../public/favicon.svg';
 import {Layout} from './components/Layout';
 import {Seo} from '@shopify/hydrogen';
 import Page from './components/bloks/Page';
+import Banner from './components/bloks/Banner';
+import PersonalizedBanners from './components/bloks/PersonalizedBanners';
 import {defer} from '@shopify/remix-oxygen';
 import {getCart} from '~/utils/getCart';
 
@@ -46,6 +48,8 @@ export async function loader({context}) {
 
 const components = {
   page: Page,
+  banner: Banner,
+  'personalized-banners': PersonalizedBanners,
 };
 storyblokInit({
   accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',

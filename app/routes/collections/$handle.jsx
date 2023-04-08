@@ -45,7 +45,7 @@ export default function Collection() {
   const {collection} = useLoaderData();
   //personalization: we set the user type to the collection title that the user is currently viewing
   if (!getCookie('user_type)') && collection) {
-    setCookie('user_type', collection.title);
+    setCookie('user_type', collection.handle);
   }
   return (
     <>

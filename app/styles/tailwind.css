@@ -46,6 +46,9 @@
       }
     }
   }
+  .btn {
+    @apply bg-primary text-black px-6 py-4 uppercase tracking-wider transition duration-500 hover:-translate-y-1;
+  }
 }
 
 @layer utilities {

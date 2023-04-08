@@ -1,6 +1,7 @@
 import {useLoaderData} from '@remix-run/react';
+import {Image} from '@shopify/hydrogen';
 import {json} from '@shopify/remix-oxygen';
-// import ProductGrid from '../../components/ProductGrid';
+import ProductGrid from '../../components/ProductGrid';
 import {getCookie, setCookie} from 'react-use-cookie';
 
 const seo = ({data}) => ({
@@ -48,25 +49,21 @@ export default function Collection() {
   }
   return (
     <>
-      <header className="grid w-full gap-8 py-8 justify-items-start">
-        <h1 className="inline-block text-4xl font-bold whitespace-pre-wrap">
-          {collection.title}
-        </h1>
-
-        {collection.description && (
-          <div className="flex items-baseline justify-between w-full">
-            <div>
-              <p className="inline-block max-w-md whitespace-pre-wrap inherit text-copy">
-                {collection.description}
-              </p>
-            </div>
-          </div>
-        )}
-      </header>
-      {/* <ProductGrid
-        collection={collection}
-        url={`/collections/${collection.handle}`}
-      /> */}
+      <div>
+        <Image
+          data={collection.image}
+          className="h-[500px] w-full object-cover object-center"
+        />
+      </div>
+      <div className="center-container">
+        <header className="grid w-full gap-8 py-8 justify-items-start ">
+          <h1 className="text-6xl mt-10">{collection.title}</h1>
+        </header>
+        <ProductGrid
+          collection={collection}
+          url={`/collections/${collection.handle}`}
+        />
+      </div>
     </>
   );
 }
@@ -77,6 +74,12 @@ const COLLECTION_QUERY = `#graphql
       id
       title
       description
+      image {
+          altText
+          width
+          height
+          url
+        }
       handle
       products(first: 4, after: $cursor) {
         pageInfo {

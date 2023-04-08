@@ -1,1 +1,1 @@
-export * from './PrintJson.jsx';
+export * from './PrintJson.js';

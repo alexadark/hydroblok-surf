@@ -12,6 +12,8 @@ import favicon from '../public/favicon.svg';
 import {Layout} from './components/Layout';
 import {Seo} from '@shopify/hydrogen';
 import Page from './components/bloks/Page';
+import {defer} from '@shopify/remix-oxygen';
+import {getCart} from '~/utils/getCart';
 
 export const links = () => {
   return [
@@ -34,8 +36,12 @@ export const meta = () => ({
 });
 
 export async function loader({context}) {
+  const cartId = await context.session.get('cartId');
   const layout = await context.storefront.query(LAYOUT_QUERY);
-  return {layout};
+  return defer({
+    layout,
+    cart: cartId ? getCart(context, cartId) : undefined,
+  });
 }
 
 const components = {

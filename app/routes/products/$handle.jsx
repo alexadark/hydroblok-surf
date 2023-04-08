@@ -2,7 +2,7 @@ import {useLoaderData} from '@remix-run/react';
 import {json} from 'react-router';
 import ProductOptions from '~/components/ProductOptions';
 import {Image, Money, ShopPayButton} from '@shopify/hydrogen-react';
-// import {AddToCartButton} from '~/components/cart';
+import {AddToCartButton} from '~/components/cart';
 
 export const loader = async ({params, context, request}) => {
   const {handle} = params;
@@ -76,8 +76,9 @@ export default function ProductHandle() {
                 variantIds={[selectedVariant?.id]}
                 storeDomain={storeDomain}
                 width={'400px'}
+                className="mb-3"
               />
-              {/* <AddToCartButton variantId={selectedVariant?.id} /> */}
+              <AddToCartButton variantId={selectedVariant?.id} />
             </div>
           )}
 
@@ -88,38 +89,6 @@ export default function ProductHandle() {
         </div>
       </div>
     </section>
-    // <section className="center-container md:flex gap-10 relative">
-    //   <div>{productImage && <Image data={productImage} width={700} />}</div>
-    //   <div className="md:sticky max-w-[500px] top-[6rem] lg:top-[8rem] xl:top-[10rem]">
-    //     <h1 className="text-4xl font-bold leading-10 whitespace-normal">
-    //       {product.title}
-    //     </h1>
-    //     <ProductOptions
-    //       options={product.options}
-    //       selectedVariant={selectedVariant}
-    //     />
-    //     <Money
-    //       withoutTrailingZeros
-    //       data={selectedVariant.price}
-    //       className="mb-2 text-xl font-semibold"
-    //     />
-    //     {orderable && (
-    //       <div className="space-y-2">
-    //         <ShopPayButton
-    //           variantIds={[selectedVariant?.id]}
-    //           storeDomain={storeDomain}
-    //           width={'400px'}
-    //         />
-    //         {/* <AddToCartButton variantId={selectedVariant?.id} /> */}
-    //       </div>
-    //     )}
-
-    //     <div
-    //       className="pt-6 prose text-black border-t border-gray-200 text-md"
-    //       dangerouslySetInnerHTML={{__html: product.descriptionHtml}}
-    //     />
-    //   </div>
-    // </section>
   );
 }
 

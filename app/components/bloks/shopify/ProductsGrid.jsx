@@ -21,7 +21,6 @@ const ProductsGrid = ({blok}) => {
         const selectedVariant = variants.nodes[0];
         const {price, compareAtPrice, image} = selectedVariant;
         const isDiscounted = compareAtPrice?.amount > price?.amount;
-
         return (
           <div key={id}>
             <Link to={`/products/${handle}`}>
@@ -40,7 +39,6 @@ const ProductsGrid = ({blok}) => {
                 />
               )}
             </Link>
-
             <AddToCartButton
               variantId={selectedVariant?.id}
               style="px-3 py-2 text-sm w-auto font-semi-bold"

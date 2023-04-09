@@ -24,7 +24,10 @@ const ProductsGrid = ({blok}) => {
         return (
           <div key={id}>
             <Link to={`/products/${handle}`}>
-              <Image data={image} />
+              <Image
+                data={image}
+                className="hover:scale-110 transition duration-500"
+              />
 
               <h3>{name}</h3>
 

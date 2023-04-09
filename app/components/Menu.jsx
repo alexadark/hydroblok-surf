@@ -6,13 +6,7 @@ const Menu = () => {
     <nav>
       <ul className="flex space-x-4">
         <li>
-          <Link to="/collections">Shop</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/cart">Cart</Link>
+          <Link to="/collections">Boards</Link>
         </li>
       </ul>
     </nav>

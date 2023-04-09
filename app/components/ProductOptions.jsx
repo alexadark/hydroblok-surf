@@ -6,7 +6,7 @@ import {
 } from '@remix-run/react';
 
 export default function ProductOptions({options, selectedVariant}) {
-  const {pathname, search} = useLocation();
+  const {pathname} = useLocation();
   const [currentSearchParams] = useSearchParams();
   const transition = useTransition();
 

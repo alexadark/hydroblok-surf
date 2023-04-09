@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import Header from './Header';
 
 export const Layout = ({children}) => {
@@ -7,7 +8,7 @@ export const Layout = ({children}) => {
         <Header />
         <main className="mb-16">{children}</main>
       </div>
-      <h1>FOOTER</h1>
+      <Footer />
     </div>
   );
 };

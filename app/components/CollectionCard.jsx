@@ -9,11 +9,15 @@ const CollectionCard = ({collection}) => {
       to={`/collections/${handle}`}
       className="relative max-w-[500px] transition duration-500 hover:-translate-y-2"
     >
-      <h2 className="absolute inset-0 flex items-end bottom-10 justify-center  text-3xl text-center bg-transparent shadow-lg ">
+      <h2 className="absolute inset-0 flex items-end bottom-20 justify-center  text-3xl text-center bg-transparent shadow-lg ">
         <span className="bg-dark p-5">{title}</span>
       </h2>
 
-      <Image data={image} alt={title} className="object-cover aspect-square" />
+      <Image
+        data={image}
+        alt={title}
+        className="object-cover aspect-square mb-10"
+      />
     </Link>
   );
 };

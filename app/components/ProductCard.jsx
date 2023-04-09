@@ -1,8 +1,9 @@
 import {Link} from '@remix-run/react';
 import {Image, Money} from '@shopify/hydrogen';
+import {AddToCartButton} from './cart';
 
 export default function ProductCard({product}) {
-  const {price, compareAtPrice} = product.variants?.nodes[0] || {};
+  const {price, compareAtPrice, id} = product.variants?.nodes[0] || {};
   const isDiscounted = compareAtPrice?.amount > price?.amount;
 
   return (
@@ -34,6 +35,7 @@ export default function ProductCard({product}) {
               )}
             </span>
           </div>
+          <AddToCartButton variantId={id} style="px-3 py-2 bg-pink-500" />
         </div>
       </div>
     </Link>

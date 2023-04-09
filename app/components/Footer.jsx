@@ -16,16 +16,20 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-zinc-700">
-        <div className="center-container text-center py-10">
+        <div className="center-container flex items-center space-x-1 justify-center uppercase font-semi-bold tracking-wide text-[12px] py-10">
           {`© ${new Date().getFullYear()}`} Powered by{' '}
           <a
             href="https://storyblok.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Storyblok
-          </a>{' '}
-          and{' '}
+            <img
+              src="/images/sb-logo.svg"
+              alt="storyblok-logo"
+              className="mx-2"
+            />
+          </a>
+          and
           <a
             href="https://hydrogen.shopify.dev/"
             target="_blank"

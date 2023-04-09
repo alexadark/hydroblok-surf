@@ -27,7 +27,7 @@ export default function ProductCard({product}) {
               />
               {isDiscounted && (
                 <Money
-                  className="line-through opacity-50 text-lg"
+                  className="line-through opacity-50"
                   withoutTrailingZeros
                   data={compareAtPrice}
                 />

@@ -1,6 +1,6 @@
 import {useFetcher} from '@remix-run/react';
 
-export const AddToCartButton = ({variantId}) => {
+export const AddToCartButton = ({variantId, style}) => {
   const fetcher = useFetcher();
 
   const lines = [{merchandiseId: variantId, quantity: 1}];
@@ -9,7 +9,7 @@ export const AddToCartButton = ({variantId}) => {
     <fetcher.Form action="/cart" method="post">
       <input type="hidden" name="cartAction" value={'ADD_TO_CART'} />
       <input type="hidden" name="lines" value={JSON.stringify(lines)} />
-      <button className="btn w-full mt-2">Add to Cart</button>
+      <button className={` btn w-full mt-2 ${style}`}>Add to Cart</button>
     </fetcher.Form>
   );
 };

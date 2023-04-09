@@ -14,6 +14,8 @@ import {Seo} from '@shopify/hydrogen';
 import Page from './components/bloks/Page';
 import Banner from './components/bloks/Banner';
 import PersonalizedBanners from './components/bloks/PersonalizedBanners';
+import ProductsGrid from './components/bloks/shopify/ProductsGrid';
+
 import {defer} from '@shopify/remix-oxygen';
 import {getCart} from '~/utils/getCart';
 
@@ -50,6 +52,7 @@ const components = {
   page: Page,
   banner: Banner,
   'personalized-banners': PersonalizedBanners,
+  'products-grid': ProductsGrid,
 };
 storyblokInit({
   accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',

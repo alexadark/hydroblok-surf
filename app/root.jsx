@@ -16,6 +16,7 @@ import Banner from './components/bloks/Banner';
 import PersonalizedBanners from './components/bloks/PersonalizedBanners';
 import PersonalizedGrid from './components/bloks/PersonalizedGrid';
 import ProductsGrid from './components/bloks/shopify/ProductsGrid';
+import SingleProduct from './components/bloks/shopify/SingleProduct';
 
 import {defer} from '@shopify/remix-oxygen';
 import {getCart} from '~/utils/getCart';
@@ -55,6 +56,7 @@ const components = {
   'personalized-banners': PersonalizedBanners,
   'personalized-grid': PersonalizedGrid,
   'products-grid': ProductsGrid,
+  'single-product': SingleProduct,
 };
 storyblokInit({
   accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',

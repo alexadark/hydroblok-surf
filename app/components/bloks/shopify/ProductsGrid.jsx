@@ -12,7 +12,7 @@ const ProductsGrid = ({blok}) => {
     <div
       key={blok._uid}
       {...storyblokEditable(blok)}
-      className="container mx-auto sm:grid grid-cols-4 gap 10 my-20"
+      className="center-container  sm:grid md:grid-cols-2  lg:grid-cols-4 gap 10 my-20"
     >
       {products.items?.map((sbProduct) => {
         const {name, id} = sbProduct;
@@ -25,7 +25,9 @@ const ProductsGrid = ({blok}) => {
           <div key={id}>
             <Link to={`/products/${handle}`}>
               <Image data={image} />
+
               <h3>{name}</h3>
+
               <Money
                 withoutTrailingZeros
                 data={price}
@@ -41,7 +43,7 @@ const ProductsGrid = ({blok}) => {
             </Link>
             <AddToCartButton
               variantId={selectedVariant?.id}
-              style="px-3 py-2 text-sm w-auto font-semi-bold"
+              style="px-3 py-2 text-sm w-[200px] font-semi-bold bg-pink-500"
             />
           </div>
         );

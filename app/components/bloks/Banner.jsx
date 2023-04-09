@@ -9,10 +9,10 @@ const Banner = ({blok}) => {
       {...storyblokEditable(blok)}
       className="md:grid grid-cols-2 gap-10 mt-16 items-center"
     >
-      <div>
+      <div className="mb-10">
         <h2 className="text-4xl md:text-6xl mb-5">{title}</h2>
-        <p className="mb-10">{text}</p>
-        <Link className="btn" to={`/collections/${user_type}`}>
+        <p className="mb-8">{text}</p>
+        <Link className="btn inline-block" to={`/collections/${user_type}`}>
           Find your board
         </Link>
       </div>

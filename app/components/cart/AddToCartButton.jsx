@@ -9,7 +9,7 @@ export const AddToCartButton = ({variantId, style}) => {
     <fetcher.Form action="/cart" method="post">
       <input type="hidden" name="cartAction" value={'ADD_TO_CART'} />
       <input type="hidden" name="lines" value={JSON.stringify(lines)} />
-      <button className={` btn w-full mt-2 ${style}`}>Add to Cart</button>
+      <button className={` btn ${style}`}>Add to Cart</button>
     </fetcher.Form>
   );
 };

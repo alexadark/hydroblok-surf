@@ -57,9 +57,6 @@ export default function ProductHandle() {
             <h1 className="text-4xl font-bold leading-10 whitespace-normal">
               {product.title}
             </h1>
-            <span className="font-medium whitespace-pre-wrap opacity-50 max-w-prose inherit text-copy">
-              {product.vendor}
-            </span>
           </div>
           <ProductOptions
             options={product.options}
@@ -78,7 +75,10 @@ export default function ProductHandle() {
                 width={'400px'}
                 className="mb-3"
               />
-              <AddToCartButton variantId={selectedVariant?.id} />
+              <AddToCartButton
+                variantId={selectedVariant?.id}
+                style="w-full mt-2"
+              />
             </div>
           )}
 

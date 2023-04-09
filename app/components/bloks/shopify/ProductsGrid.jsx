@@ -43,7 +43,7 @@ const ProductsGrid = ({blok}) => {
             </Link>
             <AddToCartButton
               variantId={selectedVariant?.id}
-              style="px-3 py-2 text-sm w-[200px] font-semi-bold bg-pink-500"
+              style="px-3 py-2 text-sm mt-2 font-semi-bold bg-pink-500"
             />
           </div>
         );

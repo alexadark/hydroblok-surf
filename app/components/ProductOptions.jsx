@@ -53,6 +53,7 @@ export default function ProductOptions({options, selectedVariant}) {
               {option.values.map((value) => {
                 const linkParams = new URLSearchParams(searchParams);
                 const isSelected = currentOptionVal === value;
+
                 linkParams.set(option.name, value);
                 return (
                   <Link
@@ -61,7 +62,9 @@ export default function ProductOptions({options, selectedVariant}) {
                     preventScrollReset
                     replace
                     className={`leading-none py-1 border-b-[1.5px] cursor-pointer transition-all duration-200 ${
-                      isSelected ? 'border-gray-500' : 'border-neutral-50'
+                      isSelected
+                        ? 'opacity-100'
+                        : 'border-transparent opacity-50'
                     }`}
                   >
                     {value}

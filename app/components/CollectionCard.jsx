@@ -13,7 +13,7 @@ const CollectionCard = ({collection}) => {
         <span className="bg-dark p-5">{title}</span>
       </h2>
 
-      <Image data={image} className="object-cover aspect-square" />
+      <Image data={image} alt={title} className="object-cover aspect-square" />
     </Link>
   );
 };

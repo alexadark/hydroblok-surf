@@ -27,7 +27,7 @@ const SingleProduct = ({blok}) => {
         </Link>
       </div>
       <div>
-        <Image data={image} />
+        <Image data={image} alt={product.title} />
       </div>
     </div>
   );

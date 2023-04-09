@@ -49,7 +49,9 @@ export default function ProductHandle() {
       <div className="grid items-start gap-6 lg:gap-20  lg:grid-cols-3">
         <div className=" md:grid-flow-row md:p-0 md:overflow-x-hidden  md:w-full lg:col-span-2">
           <div className="lg:w-[700px]">
-            {productImage && <Image data={productImage} width={700} />}
+            {productImage && (
+              <Image data={productImage} width={700} alt={product.title} />
+            )}
           </div>
         </div>
         <div className="md:sticky md:mx-auto max-w-xl md:max-w-[24rem] grid gap-8 p-0 md:p-6 md:px-0 top-[6rem] lg:top-[8rem] xl:top-[10rem]">

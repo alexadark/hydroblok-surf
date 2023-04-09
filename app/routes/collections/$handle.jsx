@@ -53,6 +53,7 @@ export default function Collection() {
         <Image
           data={collection.image}
           className="h-[500px] w-full object-cover object-center"
+          alt={collection.title}
         />
       </div>
       <div className="center-container">

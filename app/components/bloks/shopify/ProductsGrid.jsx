@@ -26,6 +26,7 @@ const ProductsGrid = ({blok}) => {
             <Link to={`/products/${handle}`}>
               <Image
                 data={image}
+                alt={name}
                 className="hover:scale-110 transition duration-500"
               />
 

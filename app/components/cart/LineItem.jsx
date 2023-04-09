@@ -11,7 +11,12 @@ const LineItem = ({lineItem}) => {
         to={`/products/${merchandise.product.handle}`}
         className="flex-shrink-0"
       >
-        <Image data={merchandise.image} width={110} height={110} />
+        <Image
+          data={merchandise.image}
+          width={110}
+          height={110}
+          alt={merchandise.product.title}
+        />
       </Link>
       <div className="flex-1">
         <h3 className="mb-2">

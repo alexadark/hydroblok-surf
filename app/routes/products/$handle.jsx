@@ -4,6 +4,14 @@ import ProductOptions from '~/components/ProductOptions';
 import {Image, Money, ShopPayButton} from '@shopify/hydrogen-react';
 import {AddToCartButton} from '~/components/cart';
 
+const seo = ({data}) => ({
+  title: data?.product?.title,
+  description: data?.product?.description,
+});
+export const handle = {
+  seo,
+};
+
 export const loader = async ({params, context, request}) => {
   const {handle} = params;
   const searchParams = new URL(request.url).searchParams;
@@ -85,8 +93,8 @@ export default function ProductHandle() {
           )}
 
           <div
-            className="pt-6 prose text-black border-t border-gray-200 text-md"
-            dangerouslySetInnerHTML={{__html: product.descriptionHtml}}
+            className="pt-6 prose border-t border-gray-200 text-md"
+            dangerouslySetInnerHTML={{__html: product.description}}
           />
         </div>
       </div>
@@ -101,7 +109,7 @@ const PRODUCT_QUERY = `#graphql
       title
       handle
       vendor
-      descriptionHtml
+      description
       featuredImage{
         id
         url

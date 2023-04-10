@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from '@remix-run/react';
 import {storyblokInit, apiPlugin} from '@storyblok/react';
 import tailwind from './styles/tailwind-build.css';
@@ -40,12 +39,19 @@ export const meta = () => ({
   charset: 'utf-8',
   viewport: 'width=device-width,initial-scale=1',
 });
+const seo = ({data}) => ({
+  title: data?.shop?.name,
+  description: data?.shop?.description,
+});
+export const handle = {
+  seo,
+};
 
 export async function loader({context}) {
   const cartId = await context.session.get('cartId');
-  const layout = await context.storefront.query(LAYOUT_QUERY);
+  const {shop} = await context.storefront.query(SHOP_QUERY);
   return defer({
-    layout,
+    shop,
     cart: cartId ? getCart(context, cartId) : undefined,
   });
 }
@@ -65,10 +71,6 @@ storyblokInit({
 });
 
 export default function App() {
-  const data = useLoaderData();
-
-  const {name} = data.layout.shop;
-
   return (
     <html lang="en">
       <head>
@@ -77,7 +79,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Layout title={name}>
+        <Layout>
           <Outlet />
         </Layout>
         <ScrollRestoration />
@@ -87,8 +89,8 @@ export default function App() {
   );
 }
 
-const LAYOUT_QUERY = `#graphql
-  query layout {
+const SHOP_QUERY = `#graphql
+  query  {
     shop {
       name
       description

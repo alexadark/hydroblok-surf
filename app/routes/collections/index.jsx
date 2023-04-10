@@ -1,6 +1,14 @@
 import {useLoaderData} from '@remix-run/react';
 import CollectionCard from '~/components/CollectionCard';
 
+const seo = () => ({
+  title: 'Boards',
+  description: 'Choose your favorite board',
+});
+export const handle = {
+  seo,
+};
+
 export async function loader({context}) {
   return await context.storefront.query(COLLECTIONS_QUERY);
 }

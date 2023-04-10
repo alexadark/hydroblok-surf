@@ -85,7 +85,7 @@ const Cart = () => {
         {(data) => (
           <div>
             {data?.totalQuantity > 0 ? (
-              <CartContent cart={data} location="page" />
+              <CartContent cart={data} />
             ) : (
               <CartEmpty />
             )}

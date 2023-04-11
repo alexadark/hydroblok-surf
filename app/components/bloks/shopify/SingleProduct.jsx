@@ -8,10 +8,10 @@ const SingleProduct = ({blok}) => {
 
   const {allProducts} = useLoaderData();
 
-  const product = allProducts.find((p) => p.title === selectedProduct.name);
-  const {handle, variants} = product;
-  const selectedVariant = variants.nodes[0];
-  const {image} = selectedVariant;
+  const product = allProducts.find((p) => p?.title === selectedProduct?.name);
+  const {handle, variants} = product || {};
+  const selectedVariant = variants?.nodes[0];
+  const {image} = selectedVariant || {};
 
   return (
     <div
@@ -26,9 +26,7 @@ const SingleProduct = ({blok}) => {
           Go for it
         </Link>
       </div>
-      <div>
-        <Image data={image} alt={product.title} />
-      </div>
+      <div>{image && <Image data={image} alt={product?.title} />}</div>
     </div>
   );
 };

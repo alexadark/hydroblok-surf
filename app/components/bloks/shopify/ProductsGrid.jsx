@@ -15,9 +15,9 @@ const ProductsGrid = ({blok}) => {
       className="center-container  sm:grid md:grid-cols-2  lg:grid-cols-4 gap 10 my-20"
     >
       {products.items?.map((sbProduct) => {
-        const {name, id} = sbProduct;
+        const {name, id} = sbProduct || {};
         const product = allProducts.find((p) => p.title === name);
-        const {handle, variants} = product;
+        const {handle, variants} = product || {};
         const selectedVariant = variants.nodes[0];
         const {price, compareAtPrice, image} = selectedVariant;
         const isDiscounted = compareAtPrice?.amount > price?.amount;

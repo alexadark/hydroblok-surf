@@ -20,6 +20,8 @@ import SingleProduct from './components/bloks/shopify/SingleProduct';
 import {defer} from '@shopify/remix-oxygen';
 import {getCart} from '~/utils/getCart';
 
+const accessToken = 'aVPSgag6Rrp47qg0HOHIbgtt';
+
 export const links = () => {
   return [
     {rel: 'stylesheet', href: tailwind},
@@ -43,8 +45,14 @@ const seo = ({data}) => ({
   title: data?.shop?.name,
   description: data?.shop?.description,
 });
+
+const env = ({data}) => ({
+  previewToken: data?.previewToken,
+});
+
 export const handle = {
   seo,
+  env,
 };
 
 export async function loader({context}) {
@@ -52,6 +60,7 @@ export async function loader({context}) {
   const {shop} = await context.storefront.query(SHOP_QUERY);
   return defer({
     shop,
+    previewToken: context.env.STORYBLOK_PREVIEW_TOKEN,
     cart: cartId ? getCart(context, cartId) : undefined,
   });
 }
@@ -64,8 +73,9 @@ const components = {
   'products-grid': ProductsGrid,
   'single-product': SingleProduct,
 };
+
 storyblokInit({
-  accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',
+  accessToken,
   use: [apiPlugin],
   components,
 });
@@ -81,6 +91,11 @@ export default function App() {
       <body>
         <Layout>
           <Outlet />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.env = ${JSON.stringify(accessToken)}`,
+            }}
+          />
         </Layout>
         <ScrollRestoration />
         <Scripts />

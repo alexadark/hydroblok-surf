@@ -39,6 +39,7 @@ export default {
         storefrontApiVersion: env.PUBLIC_STOREFRONT_API_VERSION || '2023-01',
         storefrontId: env.PUBLIC_STOREFRONT_ID,
         storefrontHeaders: getStorefrontHeaders(request),
+        storyblokPreviewToken: env.STORYBLOK_PREVIEW_TOKEN,
       });
 
       /**

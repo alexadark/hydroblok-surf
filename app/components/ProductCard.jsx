@@ -7,11 +7,11 @@ export default function ProductCard({product}) {
   const isDiscounted = compareAtPrice?.amount > price?.amount;
 
   return (
-    <Link to={`/products/${product.handle}`}>
-      <div className="grid gap-6">
-        <div className="shadow-sm rounded relative">
+    <div className="grid gap-6">
+      <Link to={`/products/${product.handle}`}>
+        <div className="relative rounded shadow-sm">
           {isDiscounted && (
-            <div className="absolute top-0 right-0 m-4 text-right text-black bg-primary px-2 py-1 uppercase ">
+            <div className="absolute top-0 right-0 px-2 py-1 m-4 text-right text-black uppercase bg-primary ">
               Sale
             </div>
           )}
@@ -20,11 +20,11 @@ export default function ProductCard({product}) {
         <div className="grid gap-1">
           <h3 className="text-xl">{product.title}</h3>
           <div className="flex gap-4">
-            <span className="max-w-prose whitespace-pre-wrap inherit text-copy flex gap-4">
+            <span className="flex gap-4 whitespace-pre-wrap max-w-prose inherit text-copy">
               <Money
                 withoutTrailingZeros
                 data={price}
-                className="font-semibold text-lg"
+                className="text-lg font-semibold"
               />
               {isDiscounted && (
                 <Money
@@ -35,9 +35,9 @@ export default function ProductCard({product}) {
               )}
             </span>
           </div>
-          <AddToCartButton variantId={id} style="px-3 py-2 bg-pink-500" />
         </div>
-      </div>
-    </Link>
+      </Link>
+      <AddToCartButton variantId={id} style="px-3 py-2 bg-pink-500" />
+    </div>
   );
 }

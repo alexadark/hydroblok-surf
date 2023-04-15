@@ -4,8 +4,8 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
-  * {
-    @apply bg-dark text-white;
+  html {
+    @apply text-white bg-dark;
   }
   h1,
   h2,
@@ -13,7 +13,7 @@
   h4,
   h5,
   h6 {
-    @apply font-heading uppercase;
+    @apply uppercase font-heading;
   }
   h1 {
     @apply mt-2 mb-5 text-3xl;
@@ -47,7 +47,7 @@
     }
   }
   .btn {
-    @apply bg-primary text-black px-6 py-3 uppercase tracking-wider transition duration-500 hover:-translate-y-1;
+    @apply px-6 py-3 tracking-wider text-black uppercase transition duration-500 bg-primary hover:-translate-y-1;
   }
 }
 

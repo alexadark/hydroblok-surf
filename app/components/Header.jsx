@@ -6,8 +6,8 @@ import Headroom from 'react-headroom';
 const Header = () => {
   return (
     <Headroom>
-      <header className="border-t-[20px] border-primary">
-        <div className="center-container flex justify-between items-center py-5">
+      <header className="border-t-[20px] border-primary bg-dark">
+        <div className="flex items-center justify-between py-5 center-container">
           <div className="flex items-center space-x-20">
             <h1>
               <Link to="/">

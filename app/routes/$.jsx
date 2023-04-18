@@ -49,7 +49,7 @@ const PRODUCTS_QUERY = `#graphql
     nodes {
       title
       handle
-
+      id
       variants(first:1) {
         nodes {
           id

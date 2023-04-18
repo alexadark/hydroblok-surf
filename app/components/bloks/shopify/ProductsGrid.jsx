@@ -12,11 +12,11 @@ const ProductsGrid = ({blok}) => {
     <div
       key={blok._uid}
       {...storyblokEditable(blok)}
-      className="center-container  sm:grid md:grid-cols-2  lg:grid-cols-4 gap 10 my-20"
+      className="my-20 center-container sm:grid md:grid-cols-2 lg:grid-cols-4 gap 10"
     >
       {products.items?.map((sbProduct) => {
-        const {name, id} = sbProduct || {};
-        const product = allProducts.find((p) => p.title === name);
+        const {id, name} = sbProduct || {};
+        const product = allProducts.find((p) => p.id === id);
         const {handle, variants} = product || {};
         const selectedVariant = variants.nodes[0];
         const {price, compareAtPrice, image} = selectedVariant;
@@ -27,7 +27,7 @@ const ProductsGrid = ({blok}) => {
               <Image
                 data={image}
                 alt={name}
-                className="hover:scale-110 transition duration-500"
+                className="transition duration-500 hover:scale-110"
               />
 
               <h3>{name}</h3>
@@ -35,11 +35,11 @@ const ProductsGrid = ({blok}) => {
               <Money
                 withoutTrailingZeros
                 data={price}
-                className="font-semibold text-lg"
+                className="text-lg font-semibold"
               />
               {isDiscounted && (
                 <Money
-                  className="line-through opacity-50 text-lg"
+                  className="text-lg line-through opacity-50"
                   withoutTrailingZeros
                   data={compareAtPrice}
                 />

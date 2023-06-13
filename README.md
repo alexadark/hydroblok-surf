@@ -29,7 +29,7 @@ PUBLIC_STORE_DOMAIN="hydroblok.myshopify.com"
 
 - Go to settings/access tokens and graben the access token
 
-- In `root.jsx` replace the actual token by yours in
+- In `app/root.jsx` replace the actual token by yours in
 
 ```storyblokInit({
   accessToken: 'aVPSgag6Rrp47qg0HOHIbgtt',
